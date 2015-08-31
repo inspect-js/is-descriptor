@@ -20,12 +20,40 @@
     "test": "mocha"
   },
   "dependencies": {
-    "arr-diff": "^1.1.0",
+    "is-accessor-descriptor": "^0.1.0",
+    "is-data-descriptor": "^0.1.0",
     "kind-of": "^2.0.1"
   },
   "devDependencies": {
     "mocha": "*",
     "should": "*"
   },
-  "keywords": []
+  "keywords": [
+    "accessor",
+    "check",
+    "data",
+    "descriptor",
+    "get",
+    "getter",
+    "is",
+    "keys",
+    "object",
+    "properties",
+    "property",
+    "set",
+    "setter",
+    "type",
+    "valid",
+    "value"
+  ],
+  "verb": {
+    "related": {
+      "list": [
+        "is-descriptor",
+        "is-data-descriptor",
+        "is-accessor-descriptor",
+        "isobject"
+      ]
+    }
+  }
 }
