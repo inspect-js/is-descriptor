@@ -18,7 +18,7 @@ var isDescriptor = require('is-descriptor');
 isDescriptor({value: 'foo'})
 //=> true
 isDescriptor({get: function(){}, set: function(){}})
-//=> false
+//=> true
 isDescriptor({get: 'foo', set: function(){}})
 //=> false
 ```
