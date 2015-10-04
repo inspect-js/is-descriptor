@@ -7,12 +7,10 @@
 
 'use strict';
 
-var typeOf = require('kind-of');
-var isAccessor = require('is-accessor-descriptor');
-var isData = require('is-data-descriptor');
+var utils = require('./utils');
 
 module.exports = function isDescriptor(obj) {
-  if (typeOf(obj) !== 'object') return false;
-  if ('value' in obj) return isData(obj);
-  return isAccessor(obj);
+  if (utils.typeOf(obj) !== 'object') return false;
+  if ('value' in obj) return utils.isData(obj);
+  return utils.isAccessor(obj);
 };
