@@ -5,12 +5,6 @@
  */
 
 var utils = require('lazy-cache')(require);
-
-/**
- * Temporarily re-assign require to trick browserify into
- * recognizing lazy requires
- */
-
 var fn = require;
 require = utils;
 require('kind-of', 'typeOf');
