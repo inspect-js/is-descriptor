@@ -21,10 +21,10 @@
     "test": "mocha"
   },
   "dependencies": {
-    "is-accessor-descriptor": "^0.1.0",
-    "is-data-descriptor": "^0.1.0",
-    "kind-of": "^2.0.1",
-    "lazy-cache": "^0.2.3"
+    "is-accessor-descriptor": "^0.1.4",
+    "is-data-descriptor": "^0.1.3",
+    "kind-of": "^3.0.2",
+    "lazy-cache": "^1.0.3"
   },
   "devDependencies": {
     "mocha": "*",
@@ -51,9 +51,9 @@
   "verb": {
     "related": {
       "list": [
-        "is-descriptor",
-        "is-data-descriptor",
         "is-accessor-descriptor",
+        "is-data-descriptor",
+        "is-descriptor",
         "isobject"
       ]
     }
