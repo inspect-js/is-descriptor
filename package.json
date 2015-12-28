@@ -1,7 +1,7 @@
 {
   "name": "is-descriptor",
   "description": "Returns true if a value has the characteristics of a valid JavaScript descriptor. Works for data descriptors and accessor descriptors.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/jonschlinkert/is-descriptor",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "jonschlinkert/is-descriptor",
@@ -21,14 +21,13 @@
     "test": "mocha"
   },
   "dependencies": {
-    "is-accessor-descriptor": "^0.1.4",
-    "is-data-descriptor": "^0.1.3",
+    "is-accessor-descriptor": "^0.1.6",
+    "is-data-descriptor": "^0.1.4",
     "kind-of": "^3.0.2",
     "lazy-cache": "^1.0.3"
   },
   "devDependencies": {
-    "mocha": "*",
-    "should": "*"
+    "mocha": "*"
   },
   "keywords": [
     "accessor",
