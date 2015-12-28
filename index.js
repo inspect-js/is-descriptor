@@ -9,8 +9,12 @@
 
 var utils = require('./utils');
 
-module.exports = function isDescriptor(obj) {
-  if (utils.typeOf(obj) !== 'object') return false;
-  if ('value' in obj) return utils.isData(obj);
-  return utils.isAccessor(obj);
+module.exports = function isDescriptor(obj, key) {
+  if (utils.typeOf(obj) !== 'object') {
+    return false;
+  }
+  if ('get' in obj) {
+    return utils.isAccessor(obj, key);
+  }
+  return utils.isData(obj, key);
 };
