@@ -1,7 +1,7 @@
 {
   "name": "is-descriptor",
   "description": "Returns true if a value has the characteristics of a valid JavaScript descriptor. Works for data descriptors and accessor descriptors.",
-  "version": "0.1.5",
+  "version": "1.0.0",
   "homepage": "https://github.com/jonschlinkert/is-descriptor",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "contributors": [
