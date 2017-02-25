@@ -24,7 +24,7 @@
     "is-accessor-descriptor": "^0.1.6",
     "is-data-descriptor": "^0.1.4",
     "kind-of": "^3.0.2",
-    "lazy-cache": "^1.0.3"
+    "lazy-cache": "^2.0.2"
   },
   "devDependencies": {
     "mocha": "*"
