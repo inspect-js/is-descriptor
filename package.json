@@ -32,6 +32,7 @@
     "lazy-cache": "^2.0.2"
   },
   "devDependencies": {
+    "gulp-format-md": "^0.1.11",
     "mocha": "*"
   },
   "keywords": [
@@ -63,6 +64,14 @@
     },
     "plugins": [
       "gulp-format-md"
-    ]
+    ],
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "lint": {
+      "reflinks": true
+    }
   }
 }
