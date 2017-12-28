@@ -11,12 +11,12 @@ var typeOf = require('kind-of');
 var isAccessor = require('is-accessor-descriptor');
 var isData = require('is-data-descriptor');
 
-module.exports = function isDescriptor(obj, key) {
+module.exports = function isDescriptor(obj, key, checkProto) {
   if (typeOf(obj) !== 'object') {
     return false;
   }
-  if ('get' in obj) {
-    return isAccessor(obj, key);
+  if (checkProto || (!('get' in obj) && !('set' in obj))) {
+    return isData(obj, key, checkProto);
   }
-  return isData(obj, key);
+  return isAccessor(obj, key);
 };

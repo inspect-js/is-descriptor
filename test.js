@@ -3,7 +3,7 @@
 require('mocha');
 var assert = require('assert');
 var isDescriptor = require('./');
-var noop = function() {};
+function noop() {};
 
 describe('isDescriptor', function() {
   describe('value type', function() {
@@ -64,8 +64,8 @@ describe('isDescriptor', function() {
       assert(!isDescriptor({get: noop, value: true}));
     });
 
-    it('should not be false when the object has unrecognize properties:', function() {
-      assert(isDescriptor({get: noop, set: noop, bar: 'baz'}));
+    it('should be false when the object has unrecognize properties:', function() {
+      assert(!isDescriptor({get: noop, set: noop, bar: 'baz'}));
     });
 
     it('should be false when an accessor is not a function:', function() {
@@ -80,9 +80,13 @@ describe('isDescriptor', function() {
       assert(!isDescriptor({get: 'foo'}));
     });
 
-    it('should be true when the object has valid properties:', function() {
-      assert(isDescriptor({get: noop, set: noop}));
-      assert(isDescriptor({get: noop}));
+    it('should be true when the object has all necessary properties', function() {
+      assert(isDescriptor({get: noop, set: noop, configurable: true, enumerable: true}));
+    });
+
+    it('should not be true when the object does not have all necessary properties', function() {
+      assert(!isDescriptor({get: noop, set: noop}));
+      assert(!isDescriptor({get: noop}));
     });
 
     it('should be false when a value is not the correct type:', function() {

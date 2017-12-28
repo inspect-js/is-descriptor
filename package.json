@@ -19,13 +19,13 @@
   ],
   "main": "index.js",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=6"
   },
   "scripts": {
     "test": "mocha"
   },
   "dependencies": {
-    "is-accessor-descriptor": "^1.0.0",
+    "is-accessor-descriptor": "^2.0.0",
     "is-data-descriptor": "^1.0.0",
     "kind-of": "^6.0.2"
   },
