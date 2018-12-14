@@ -5,9 +5,9 @@
   "homepage": "https://github.com/jonschlinkert/is-descriptor",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "contributors": [
+    "(https://github.com/wtgtybhertgeghgtwtg)",
     "Brian Woodward (https://twitter.com/doowb)",
-    "Jon Schlinkert (http://twitter.com/jonschlinkert)",
-    "(https://github.com/wtgtybhertgeghgtwtg)"
+    "Jon Schlinkert (http://twitter.com/jonschlinkert)"
   ],
   "repository": "jonschlinkert/is-descriptor",
   "bugs": {
@@ -24,14 +24,9 @@
   "scripts": {
     "test": "mocha"
   },
-  "dependencies": {
-    "is-accessor-descriptor": "^2.0.0",
-    "is-data-descriptor": "^1.0.0",
-    "kind-of": "^6.0.2"
-  },
   "devDependencies": {
-    "gulp-format-md": "^1.0.0",
-    "mocha": "^3.5.3"
+    "gulp-format-md": "^2.0.0",
+    "mocha": "^5.2.0"
   },
   "keywords": [
     "accessor",

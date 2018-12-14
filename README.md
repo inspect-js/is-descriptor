@@ -15,80 +15,66 @@ $ npm install --save is-descriptor
 ## Usage
 
 ```js
-var isDescriptor = require('is-descriptor');
+const isDescriptor = require('is-descriptor');
 
-isDescriptor({value: 'foo'})
+isDescriptor({ value: 'foo' })
 //=> true
-isDescriptor({get: function(){}, set: function(){}})
+isDescriptor({ get: function() {}, set: function() {} })
 //=> true
-isDescriptor({get: 'foo', set: function(){}})
+isDescriptor({ get: 'foo', set: function() {} })
 //=> false
 ```
 
 You may also check for a descriptor by passing an object as the first argument and property name (`string`) as the second argument.
 
 ```js
-var obj = {};
-obj.foo = 'abc';
+const obj = {};
+obj.foo = null;
 
-Object.defineProperty(obj, 'bar', {
-  value: 'xyz'
-});
+Object.defineProperty(obj, 'bar', { value: 'xyz' });
+Reflect.defineProperty(obj, 'baz', { value: 'xyz' });
 
-isDescriptor(obj, 'foo');
-//=> true
-isDescriptor(obj, 'bar');
-//=> true
+isDescriptor(obj, 'foo'); //=> true
+isDescriptor(obj, 'bar'); //=> true
+isDescriptor(obj, 'baz'); //=> true
 ```
 
 ## Examples
 
 ### value type
 
-`false` when not an object
+Returns `false` when not an object
 
 ```js
-isDescriptor('a');
-//=> false
-isDescriptor(null);
-//=> false
-isDescriptor([]);
-//=> false
+isDescriptor('a'); //=> false
+isDescriptor(null); //=> false
+isDescriptor([]); //=> false
 ```
 
 ### data descriptor
 
-`true` when the object has valid properties with valid values.
+Returns `true` when the object has valid properties with valid values.
 
 ```js
-isDescriptor({value: 'foo'});
-//=> true
-isDescriptor({value: noop});
-//=> true
+isDescriptor({ value: 'foo' }); //=> true
+isDescriptor({ value: function() {} }); //=> true
 ```
 
-`false` when the object has invalid properties
+Returns `false` when the object has invalid properties
 
 ```js
-isDescriptor({value: 'foo', bar: 'baz'});
-//=> false
-isDescriptor({value: 'foo', bar: 'baz'});
-//=> false
-isDescriptor({value: 'foo', get: noop});
-//=> false
-isDescriptor({get: noop, value: noop});
-//=> false
+isDescriptor({ value: 'foo', bar: 'baz' }); //=> false
+isDescriptor({ value: 'foo', bar: 'baz' }); //=> false
+isDescriptor({ value: 'foo', get: function() {} }); //=> false
+isDescriptor({ get: function() {}, value: function() {} }); //=> false
 ```
 
 `false` when a value is not the correct type
 
 ```js
-isDescriptor({value: 'foo', enumerable: 'foo'});
-//=> false
-isDescriptor({value: 'foo', configurable: 'foo'});
-//=> false
-isDescriptor({value: 'foo', writable: 'foo'});
-//=> false
+isDescriptor({ value: 'foo', enumerable: 'foo' }); //=> false
+isDescriptor({ value: 'foo', configurable: 'foo' }); //=> false
+isDescriptor({ value: 'foo', writable: 'foo' }); //=> false
 ```
 
 ### accessor descriptor
@@ -96,47 +82,34 @@ isDescriptor({value: 'foo', writable: 'foo'});
 `true` when the object has valid properties with valid values.
 
 ```js
-isDescriptor({get: noop, set: noop});
-//=> true
-isDescriptor({get: noop});
-//=> true
-isDescriptor({set: noop});
-//=> true
+isDescriptor({ get: function() {}, set: function() {} }); //=> true
+isDescriptor({ get: function() {} }); //=> true
+isDescriptor({ set: function() {} }); //=> true
 ```
 
 `false` when the object has invalid properties
 
 ```js
-isDescriptor({get: noop, set: noop, bar: 'baz'});
-//=> false
-isDescriptor({get: noop, writable: true});
-//=> false
-isDescriptor({get: noop, value: true});
-//=> false
+isDescriptor({ get: function() {}, set: function() {}, bar: 'baz' }); //=> false
+isDescriptor({ get: function() {}, writable: true }); //=> false
+isDescriptor({ get: function() {}, value: true }); //=> false
 ```
 
-`false` when an accessor is not a function
+Returns `false` when an accessor is not a function
 
 ```js
-isDescriptor({get: noop, set: 'baz'});
-//=> false
-isDescriptor({get: 'foo', set: noop});
-//=> false
-isDescriptor({get: 'foo', bar: 'baz'});
-//=> false
-isDescriptor({get: 'foo', set: 'baz'});
-//=> false
+isDescriptor({ get: function() {}, set: 'baz' }); //=> false
+isDescriptor({ get: 'foo', set: function() {} }); //=> false
+isDescriptor({ get: 'foo', bar: 'baz' }); //=> false
+isDescriptor({ get: 'foo', set: 'baz' }); //=> false
 ```
 
-`false` when a value is not the correct type
+Returns `false` when a value is not the correct type
 
 ```js
-isDescriptor({get: noop, set: noop, enumerable: 'foo'});
-//=> false
-isDescriptor({set: noop, configurable: 'foo'});
-//=> false
-isDescriptor({get: noop, configurable: 'foo'});
-//=> false
+isDescriptor({ get: function() {}, set: function() {}, enumerable: 'foo' }); //=> false
+isDescriptor({ set: function() {}, configurable: 'foo' }); //=> false
+isDescriptor({ get: function() {}, configurable: 'foo' }); //=> false
 ```
 
 ## About
@@ -158,6 +131,7 @@ $ npm install && npm test
 ```
 
 </details>
+
 <details>
 <summary><strong>Building docs</strong></summary>
 
@@ -182,25 +156,26 @@ You might also be interested in these projects:
 
 ### Contributors
 
-| **Commits** | **Contributor** | 
-| --- | --- |
-| 27 | [jonschlinkert](https://github.com/jonschlinkert) |
-| 1 | [doowb](https://github.com/doowb) |
-| 1 | [wtgtybhertgeghgtwtg](https://github.com/wtgtybhertgeghgtwtg) |
+| **Commits** | **Contributor** |  
+| --- | --- |  
+| 33 | [jonschlinkert](https://github.com/jonschlinkert) |  
+| 1  | [doowb](https://github.com/doowb) |  
+| 1  | [realityking](https://github.com/realityking) |  
+| 1  | [wtgtybhertgeghgtwtg](https://github.com/wtgtybhertgeghgtwtg) |  
 
 ### Author
 
 **Jon Schlinkert**
 
-* [linkedin/in/jonschlinkert](https://linkedin.com/in/jonschlinkert)
-* [github/jonschlinkert](https://github.com/jonschlinkert)
-* [twitter/jonschlinkert](https://twitter.com/jonschlinkert)
+* [GitHub Profile](https://github.com/jonschlinkert)
+* [Twitter Profile](https://twitter.com/jonschlinkert)
+* [LinkedIn Profile](https://linkedin.com/in/jonschlinkert)
 
 ### License
 
-Copyright © 2017, [Jon Schlinkert](https://github.com/jonschlinkert).
+Copyright © 2018, [Jon Schlinkert](https://github.com/jonschlinkert).
 Released under the [MIT License](LICENSE).
 
 ***
 
-_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.6.0, on December 28, 2017._
+_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.8.0, on December 13, 2018._
