@@ -29,7 +29,6 @@
 	"devDependencies": {
 		"@ljharb/eslint-config": "^21.0.1",
 		"eslint": "=8.8.0",
-		"gulp-format-md": "^2.0.0",
 		"mocha": "^5.2.0"
 	},
 	"keywords": [
@@ -49,26 +48,5 @@
 		"type",
 		"valid",
 		"value"
-	],
-	"verb": {
-		"related": {
-			"list": [
-				"is-accessor-descriptor",
-				"is-data-descriptor",
-				"is-descriptor",
-				"isobject"
-			]
-		},
-		"plugins": [
-			"gulp-format-md"
-		],
-		"toc": false,
-		"layout": "default",
-		"tasks": [
-			"readme"
-		],
-		"lint": {
-			"reflinks": true
-		}
-	}
+	]
 }
