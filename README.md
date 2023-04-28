@@ -156,12 +156,12 @@ You might also be interested in these projects:
 
 ### Contributors
 
-| **Commits** | **Contributor** |  
-| --- | --- |  
-| 33 | [jonschlinkert](https://github.com/jonschlinkert) |  
-| 1  | [doowb](https://github.com/doowb) |  
-| 1  | [realityking](https://github.com/realityking) |  
-| 1  | [wtgtybhertgeghgtwtg](https://github.com/wtgtybhertgeghgtwtg) |  
+| **Commits** | **Contributor** |
+| --- | --- |
+| 33 | [jonschlinkert](https://github.com/jonschlinkert) |
+| 1 | [doowb](https://github.com/doowb) |
+| 1 | [realityking](https://github.com/realityking) |
+| 1 | [wtgtybhertgeghgtwtg](https://github.com/wtgtybhertgeghgtwtg) |
 
 ### Author
 

@@ -1,0 +1,19 @@
+{
+	"extends": "@ljharb/eslint-config/node/6",
+
+	"overrides": [
+		{
+			"files": "test/**/*.js",
+			"env": {
+				"mocha": true,
+			},
+			"rules": {
+				"max-lines-per-function": "off",
+			},
+		},
+	],
+
+	"rules": {
+		"func-style": "warn",
+	},
+}
