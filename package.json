@@ -1,36 +1,20 @@
 {
 	"name": "is-descriptor",
-	"description": "Returns true if a value has the characteristics of a valid JavaScript descriptor. Works for data descriptors and accessor descriptors.",
 	"version": "3.0.0",
-	"homepage": "https://github.com/jonschlinkert/is-descriptor",
-	"author": "Jon Schlinkert (https://github.com/jonschlinkert)",
-	"contributors": [
-		"(https://github.com/wtgtybhertgeghgtwtg)",
-		"Brian Woodward (https://twitter.com/doowb)",
-		"Jon Schlinkert (http://twitter.com/jonschlinkert)"
-	],
-	"repository": "jonschlinkert/is-descriptor",
-	"bugs": {
-		"url": "https://github.com/jonschlinkert/is-descriptor/issues"
-	},
-	"license": "MIT",
+	"description": "Returns true if a value has the characteristics of a valid JavaScript descriptor. Works for data descriptors and accessor descriptors.",
+	"main": "index.js",
 	"files": [
 		"index.js"
 	],
-	"main": "index.js",
-	"engines": {
-		"node": ">=6"
-	},
 	"scripts": {
 		"lint": "eslint --ext=js,mjs .",
 		"pretest": "npm run lint",
 		"tests-only": "tape 'test/**/*.js'",
 		"test": "npm run tests-only"
 	},
-	"devDependencies": {
-		"@ljharb/eslint-config": "^21.0.1",
-		"eslint": "=8.8.0",
-		"tape": "^5.6.3"
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/inspect-js/is-descriptor.git"
 	},
 	"keywords": [
 		"accessor",
@@ -49,5 +33,24 @@
 		"type",
 		"valid",
 		"value"
-	]
+	],
+	"author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/inspect-js/is-descriptor/issues"
+	},
+	"homepage": "https://github.com/inspect-js/is-descriptor",
+	"contributors": [
+		"(https://github.com/wtgtybhertgeghgtwtg)",
+		"Brian Woodward (https://twitter.com/doowb)",
+		"Jon Schlinkert (https://twitter.com/jonschlinkert)"
+	],
+	"devDependencies": {
+		"@ljharb/eslint-config": "^21.0.1",
+		"eslint": "=8.8.0",
+		"tape": "^5.6.3"
+	},
+	"engines": {
+		"node": ">=6"
+	}
 }

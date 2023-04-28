@@ -1,28 +1,26 @@
-# is-descriptor [![NPM version](https://img.shields.io/npm/v/is-descriptor.svg?style=flat)](https://www.npmjs.com/package/is-descriptor) [![NPM monthly downloads](https://img.shields.io/npm/dm/is-descriptor.svg?style=flat)](https://npmjs.org/package/is-descriptor) [![NPM total downloads](https://img.shields.io/npm/dt/is-descriptor.svg?style=flat)](https://npmjs.org/package/is-descriptor) [![Linux Build Status](https://img.shields.io/travis/jonschlinkert/is-descriptor.svg?style=flat&label=Travis)](https://travis-ci.org/jonschlinkert/is-descriptor)
+# is-descriptor <sup>[![Version Badge][npm-version-svg]][package-url]</sup>
 
-> Returns true if a value has the characteristics of a valid JavaScript descriptor. Works for data descriptors and accessor descriptors.
+[![github actions][actions-image]][actions-url]
+[![coverage][codecov-image]][codecov-url]
+[![License][license-image]][license-url]
+[![Downloads][downloads-image]][downloads-url]
 
-Please consider following this project's author, [Jon Schlinkert](https://github.com/jonschlinkert), and consider starring the project to show your :heart: and support.
+[![npm badge][npm-badge-png]][package-url]
 
-## Install
-
-Install with [npm](https://www.npmjs.com/):
-
-```sh
-$ npm install --save is-descriptor
-```
+> Returns true if a value has the characteristics of a valid JavaScript descriptor. Works for fully completed data descriptors and accessor descriptors.
 
 ## Usage
 
 ```js
 const isDescriptor = require('is-descriptor');
+const assert = require('assert');
 
-isDescriptor({ value: 'foo' })
-//=> true
-isDescriptor({ get: function() {}, set: function() {} })
-//=> true
-isDescriptor({ get: 'foo', set: function() {} })
-//=> false
+const defaults = { configurable: false, enumerable: false };
+const dataDefaults = { ...defaults, writable: false};
+
+assert.ok(isDescriptor({ ...dataDefaults, value: 'foo' }));
+assert.ok(isDescriptor({ ...defaults, get() {}, set() {} }));
+assert.ok(!isDescriptor({ ...defaults, get: 'foo', set() {} }));
 ```
 
 You may also check for a descriptor by passing an object as the first argument and property name (`string`) as the second argument.
@@ -34,9 +32,9 @@ obj.foo = null;
 Object.defineProperty(obj, 'bar', { value: 'xyz' });
 Reflect.defineProperty(obj, 'baz', { value: 'xyz' });
 
-isDescriptor(obj, 'foo'); //=> true
-isDescriptor(obj, 'bar'); //=> true
-isDescriptor(obj, 'baz'); //=> true
+assert.ok(isDescriptor(obj, 'foo'));
+assert.ok(isDescriptor(obj, 'bar'));
+assert.ok(isDescriptor(obj, 'baz'));
 ```
 
 ## Examples
@@ -46,9 +44,9 @@ isDescriptor(obj, 'baz'); //=> true
 Returns `false` when not an object
 
 ```js
-isDescriptor('a'); //=> false
-isDescriptor(null); //=> false
-isDescriptor([]); //=> false
+assert.ok(!isDescriptor('a'));
+assert.ok(!isDescriptor(null));
+assert.ok(!isDescriptor([]));
 ```
 
 ### data descriptor
@@ -56,25 +54,25 @@ isDescriptor([]); //=> false
 Returns `true` when the object has valid properties with valid values.
 
 ```js
-isDescriptor({ value: 'foo' }); //=> true
-isDescriptor({ value: function() {} }); //=> true
+assert.ok(isDescriptor({ ...dataDefaults, value: 'foo' }));
+assert.ok(isDescriptor({ ...dataDefaults, value() {} }));
 ```
 
 Returns `false` when the object has invalid properties
 
 ```js
-isDescriptor({ value: 'foo', bar: 'baz' }); //=> false
-isDescriptor({ value: 'foo', bar: 'baz' }); //=> false
-isDescriptor({ value: 'foo', get: function() {} }); //=> false
-isDescriptor({ get: function() {}, value: function() {} }); //=> false
+assert.ok(!isDescriptor({ ...dataDefaults, value: 'foo', bar: 'baz' }));
+assert.ok(!isDescriptor({ ...dataDefaults, value: 'foo', bar: 'baz' }));
+assert.ok(!isDescriptor({ ...dataDefaults, value: 'foo', get() {} }));
+assert.ok(!isDescriptor({ ...dataDefaults, get() {}, value() {} }));
 ```
 
 `false` when a value is not the correct type
 
 ```js
-isDescriptor({ value: 'foo', enumerable: 'foo' }); //=> false
-isDescriptor({ value: 'foo', configurable: 'foo' }); //=> false
-isDescriptor({ value: 'foo', writable: 'foo' }); //=> false
+assert.ok(!isDescriptor({ ...dataDefaults, value: 'foo', enumerable: 'foo'}));
+assert.ok(!isDescriptor({ ...dataDefaults, value: 'foo', configurable: 'foo'}));
+assert.ok(!isDescriptor({ ...dataDefaults, value: 'foo', writable: 'foo'}));
 ```
 
 ### accessor descriptor
@@ -82,83 +80,59 @@ isDescriptor({ value: 'foo', writable: 'foo' }); //=> false
 `true` when the object has valid properties with valid values.
 
 ```js
-isDescriptor({ get: function() {}, set: function() {} }); //=> true
-isDescriptor({ get: function() {} }); //=> true
-isDescriptor({ set: function() {} }); //=> true
+assert.ok(isDescriptor({ ...defaults, get() {}, set() {} }));
+assert.ok(isDescriptor({ ...defaults, get() {} }));
+assert.ok(isDescriptor({ ...defaults, set() {} }));
 ```
 
 `false` when the object has invalid properties
 
 ```js
-isDescriptor({ get: function() {}, set: function() {}, bar: 'baz' }); //=> false
-isDescriptor({ get: function() {}, writable: true }); //=> false
-isDescriptor({ get: function() {}, value: true }); //=> false
+assert.ok(!isDescriptor({ ...defaults, get() {}, set() {}, bar: 'baz' }));
+assert.ok(!isDescriptor({ ...defaults, get() {}, writable: true }));
+assert.ok(!isDescriptor({ ...defaults, get() {}, value: true }));
 ```
 
 Returns `false` when an accessor is not a function
 
 ```js
-isDescriptor({ get: function() {}, set: 'baz' }); //=> false
-isDescriptor({ get: 'foo', set: function() {} }); //=> false
-isDescriptor({ get: 'foo', bar: 'baz' }); //=> false
-isDescriptor({ get: 'foo', set: 'baz' }); //=> false
+assert.ok(!isDescriptor({ ...defaults, get() {}, set: 'baz' }));
+assert.ok(!isDescriptor({ ...defaults, get: 'foo', set() {} }));
+assert.ok(!isDescriptor({ ...defaults, get: 'foo', bar: 'baz' }));
+assert.ok(!isDescriptor({ ...defaults, get: 'foo', set: 'baz' }));
 ```
 
 Returns `false` when a value is not the correct type
 
 ```js
-isDescriptor({ get: function() {}, set: function() {}, enumerable: 'foo' }); //=> false
-isDescriptor({ set: function() {}, configurable: 'foo' }); //=> false
-isDescriptor({ get: function() {}, configurable: 'foo' }); //=> false
+assert.ok(!isDescriptor({ ...defaults, get() {}, set() {}, enumerable: 'foo' }));
+assert.ok(!isDescriptor({ ...defaults, set() {}, configurable: 'foo' }));
+assert.ok(!isDescriptor({ ...defaults, get() {}, configurable: 'foo' }));
 ```
-
-## About
-
-<details>
-<summary><strong>Contributing</strong></summary>
-
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](../../issues/new).
-
-</details>
-
-<details>
-<summary><strong>Running Tests</strong></summary>
-
-Running and reviewing unit tests is a great way to get familiarized with a library and its API. You can install dependencies and run tests with the following command:
-
-```sh
-$ npm install && npm test
-```
-
-</details>
 
 ### Related projects
 
 You might also be interested in these projects:
 
-* [is-accessor-descriptor](https://www.npmjs.com/package/is-accessor-descriptor): Returns true if a value has the characteristics of a valid JavaScript accessor descriptor. | [homepage](https://github.com/jonschlinkert/is-accessor-descriptor "Returns true if a value has the characteristics of a valid JavaScript accessor descriptor.")
-* [is-data-descriptor](https://www.npmjs.com/package/is-data-descriptor): Returns true if a value has the characteristics of a valid JavaScript data descriptor. | [homepage](https://github.com/jonschlinkert/is-data-descriptor "Returns true if a value has the characteristics of a valid JavaScript data descriptor.")
-* [is-descriptor](https://www.npmjs.com/package/is-descriptor): Returns true if a value has the characteristics of a valid JavaScript descriptor. Works for… [more](https://github.com/jonschlinkert/is-descriptor) | [homepage](https://github.com/jonschlinkert/is-descriptor "Returns true if a value has the characteristics of a valid JavaScript descriptor. Works for data descriptors and accessor descriptors.")
-* [isobject](https://www.npmjs.com/package/isobject): Returns true if the value is an object and not an array or null. | [homepage](https://github.com/jonschlinkert/isobject "Returns true if the value is an object and not an array or null.")
+* [is-accessor-descriptor](https://www.npmjs.com/package/is-accessor-descriptor): Returns true if a value has the characteristics of a valid JavaScript accessor descriptor.
+* [is-data-descriptor](https://www.npmjs.com/package/is-data-descriptor): Returns true if a value has the characteristics of a valid JavaScript data descriptor.
+* [is-object](https://www.npmjs.com/package/is-object): Returns true if the value is an object and not an array or null.
 
-### Contributors
+## Tests
+Simply clone the repo, `npm install`, and run `npm test`
 
-| **Commits** | **Contributor** |
-| --- | --- |
-| 33 | [jonschlinkert](https://github.com/jonschlinkert) |
-| 1 | [doowb](https://github.com/doowb) |
-| 1 | [realityking](https://github.com/realityking) |
-| 1 | [wtgtybhertgeghgtwtg](https://github.com/wtgtybhertgeghgtwtg) |
-
-### Author
-
-**Jon Schlinkert**
-
-* [GitHub Profile](https://github.com/jonschlinkert)
-* [Twitter Profile](https://twitter.com/jonschlinkert)
-* [LinkedIn Profile](https://linkedin.com/in/jonschlinkert)
-
-### License
-
-Copyright © 2018, [Jon Schlinkert](https://github.com/jonschlinkert).
-Released under the [MIT License](LICENSE).
+[package-url]: https://npmjs.org/package/is-descriptor
+[npm-version-svg]: https://versionbadg.es/inspect-js/is-descriptor.svg
+[deps-svg]: https://david-dm.org/inspect-js/is-descriptor.svg
+[deps-url]: https://david-dm.org/inspect-js/is-descriptor
+[dev-deps-svg]: https://david-dm.org/inspect-js/is-descriptor/dev-status.svg
+[dev-deps-url]: https://david-dm.org/inspect-js/is-descriptor#info=devDependencies
+[npm-badge-png]: https://nodei.co/npm/is-descriptor.png?downloads=true&stars=true
+[license-image]: https://img.shields.io/npm/l/is-descriptor.svg
+[license-url]: LICENSE
+[downloads-image]: https://img.shields.io/npm/dm/is-descriptor.svg
+[downloads-url]: https://npm-stat.com/charts.html?package=is-descriptor
+[codecov-image]: https://codecov.io/gh/inspect-js/is-descriptor/branch/main/graphs/badge.svg
+[codecov-url]: https://app.codecov.io/gh/inspect-js/is-descriptor/
+[actions-image]: https://img.shields.io/endpoint?url=https://github-actions-badge-u3jn4tfpocch.runkit.sh/inspect-js/is-descriptor
+[actions-url]: https://github.com/inspect-js/is-descriptor/actions
