@@ -1,26 +1,26 @@
 'use strict';
 
-const isObject = (val) => val !== null && typeof val === 'object';
-const dataDesc = new Set([
-	'configurable', 'enumerable', 'get', 'set',
-]);
-const accDesc = new Set([
-	'configurable', 'enumerable', 'writable', 'value',
-]);
+var isObject = function (val) {
+	return val !== null && typeof val === 'object';
+};
 
 function isDataDesc(keys) {
-	return keys.every((k) => dataDesc.has(k));
+	return keys.every(function (k) {
+		return k === 'configurable' || k === 'enumerable' || k === 'get' || k === 'set';
+	});
 }
 
 function isAccessorDesc(keys) {
-	return keys.every((k) => accDesc.has(k));
+	return keys.every(function (k) {
+		return k === 'configurable' || k === 'enumerable' || k === 'writable' || k === 'value';
+	});
 }
 
-module.exports = (obj, key, checkProto) => {
+module.exports = function isDescriptor(obj, key, checkProto) {
 	if (!isObject(obj)) {
 		return false;
 	}
-	let desc = key ? Object.getOwnPropertyDescriptor(obj, key) : obj;
+	var desc = key ? Object.getOwnPropertyDescriptor(obj, key) : obj;
 
 	if (!desc && key && checkProto !== false && obj.constructor) {
 		desc = Object.getOwnPropertyDescriptor(obj.constructor.prototype, key);
@@ -33,7 +33,7 @@ module.exports = (obj, key, checkProto) => {
 		return false;
 	}
 
-	const keys = Object.keys(desc);
+	var keys = Object.keys(desc);
 	if (isDataDesc(keys)) {
 		if (typeof desc.get !== 'function' && desc.get !== void 0) {
 			return false;
