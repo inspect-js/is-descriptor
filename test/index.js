@@ -42,6 +42,13 @@ test('isDescriptor', function (t) {
 		st.end();
 	});
 
+	t.test('with a key', function (st) {
+		st.equal(isDescriptor({ foo: 3 }, 'foo'), true, 'a data property is a data descriptor');
+		st.equal(isDescriptor({ '': 3 }, ''), true, 'an empty string data property is a data descriptor');
+		st.equal(isDescriptor({ 0: 3 }, 0), true, 'a zero data property is a data descriptor');
+		st.end();
+	});
+
 	t.test('data descriptor:', function (st) {
 		st.test('is false when the object has invalid properties:', function (s2t) {
 			s2t.notOk(isDescriptor({ value: 'foo', get: noop }));

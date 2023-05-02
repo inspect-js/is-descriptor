@@ -20,9 +20,9 @@ module.exports = function isDescriptor(obj, key, checkProto) {
 	if (!isObject(obj)) {
 		return false;
 	}
-	var desc = key ? Object.getOwnPropertyDescriptor(obj, key) : obj;
+	var desc = arguments.length > 1 ? Object.getOwnPropertyDescriptor(obj, key) : obj;
 
-	if (!desc && key && checkProto !== false && obj.constructor) {
+	if (!desc && arguments.length > 1 && checkProto !== false && obj.constructor) {
 		desc = Object.getOwnPropertyDescriptor(obj.constructor.prototype, key);
 	}
 
