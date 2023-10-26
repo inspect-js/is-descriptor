@@ -8,8 +8,10 @@ module.exports = function isDescriptor(obj, key) {
 	if (typeOf(obj) !== 'object') {
 		return false;
 	}
-	if ('get' in obj) {
+
+	if ('get' in obj || 'set' in obj) {
 		return isAccessor(obj, key);
 	}
+
 	return isData(obj, key);
 };

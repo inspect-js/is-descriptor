@@ -89,8 +89,8 @@ test('isDescriptor', function (t) {
 			s2t.end();
 		});
 
-		st.test('is false when "get" is not a function', function (s2t) {
-			s2t.notOk(isDescriptor({ set: noop }));
+		st.test('is false when "get" or "set" is not a function', function (s2t) {
+			s2t.notOk(isDescriptor({ set: 'foo' }));
 			s2t.notOk(isDescriptor({ get: 'foo' }));
 
 			s2t.end();
