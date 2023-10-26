@@ -53,8 +53,8 @@
 		"(https://github.com/wtgtybhertgeghgtwtg)"
 	],
 	"dependencies": {
-		"is-accessor-descriptor": "^1.0.0",
-		"is-data-descriptor": "^1.0.0",
+		"is-accessor-descriptor": "^1.0.1",
+		"is-data-descriptor": "^1.0.1",
 		"kind-of": "^6.0.2"
 	},
 	"devDependencies": {
