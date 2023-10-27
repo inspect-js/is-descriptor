@@ -2,10 +2,10 @@
 
 var test = require('tape');
 var isDescriptor = require('../');
-function noop() {}
+var noop = function () {};
 
 test('isDescriptor', function (t) {
-	t.test('value type: is false when not an object', function (st) {
+	t.test('is false when not an object:', function (st) {
 		st.notOk(isDescriptor('a'));
 		st.notOk(isDescriptor(null));
 		st.notOk(isDescriptor([]));
@@ -105,9 +105,10 @@ test('isDescriptor', function (t) {
 			s2t.end();
 		});
 
-		st.test('is false when "get" is not a function', function (s2t) {
+		st.test('is false when "get" or "set" is not a function', function (s2t) {
 			s2t.ok(isDescriptor({ enumerable: true, configurable: true, set: noop }));
 			s2t.notOk(isDescriptor({ enumerable: true, configurable: true, get: 'foo' }));
+			s2t.notOk(isDescriptor({ enumerable: true, configurable: true, set: 'foo' }));
 
 			s2t.end();
 		});
@@ -132,5 +133,7 @@ test('isDescriptor', function (t) {
 
 			s2t.end();
 		});
+
+		st.end();
 	});
 });

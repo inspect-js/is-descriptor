@@ -26,15 +26,14 @@ assert.ok(!isDescriptor({ ...defaults, get: 'foo', set() {} }));
 You may also check for a descriptor by passing an object as the first argument and property name (`string`) as the second argument.
 
 ```js
-const obj = {};
-obj.foo = null;
+const obj = { foo: 'abc' };
 
 Object.defineProperty(obj, 'bar', { value: 'xyz' });
 Reflect.defineProperty(obj, 'baz', { value: 'xyz' });
 
-assert.ok(isDescriptor(obj, 'foo'));
-assert.ok(isDescriptor(obj, 'bar'));
-assert.ok(isDescriptor(obj, 'baz'));
+assert.equal(isDescriptor(obj, 'foo'), true);
+assert.equal(isDescriptor(obj, 'bar'), true);
+assert.equal(isDescriptor(obj, 'baz'), true);
 ```
 
 ## Examples
@@ -44,9 +43,9 @@ assert.ok(isDescriptor(obj, 'baz'));
 Returns `false` when not an object
 
 ```js
-assert.ok(!isDescriptor('a'));
-assert.ok(!isDescriptor(null));
-assert.ok(!isDescriptor([]));
+assert.equal(isDescriptor('a'), false);
+assert.equal(isDescriptor(null), false);
+assert.equal(isDescriptor([]), false);
 ```
 
 ### data descriptor
@@ -54,25 +53,27 @@ assert.ok(!isDescriptor([]));
 Returns `true` when the object has valid properties with valid values.
 
 ```js
-assert.ok(isDescriptor({ ...dataDefaults, value: 'foo' }));
-assert.ok(isDescriptor({ ...dataDefaults, value() {} }));
+assert.equal(isDescriptor({ ...dataDefaults, value: 'foo' }), true);
+assert.equal(isDescriptor({ ...dataDefaults, value() {} }), true);
 ```
 
 Returns `false` when the object has invalid properties
 
 ```js
-assert.ok(!isDescriptor({ ...dataDefaults, value: 'foo', bar: 'baz' }));
-assert.ok(!isDescriptor({ ...dataDefaults, value: 'foo', bar: 'baz' }));
-assert.ok(!isDescriptor({ ...dataDefaults, value: 'foo', get() {} }));
-assert.ok(!isDescriptor({ ...dataDefaults, get() {}, value() {} }));
+assert.equal(isDescriptor({ ...dataDefaults, value: 'foo', bar: 'baz' }), false);
+assert.equal(isDescriptor({ ...dataDefaults, value: 'foo', bar: 'baz' }), false);
+assert.equal(isDescriptor({ ...dataDefaults, value: 'foo', enumerable: 'baz' }), false);
+assert.equal(isDescriptor({ ...dataDefaults, value: 'foo', configurable: 'baz' }), false);
+assert.equal(isDescriptor({ ...dataDefaults, value: 'foo', get() {} }), false);
+assert.equal(isDescriptor({ ...dataDefaults, get() {}, value() {} }), false);
 ```
 
 `false` when a value is not the correct type
 
 ```js
-assert.ok(!isDescriptor({ ...dataDefaults, value: 'foo', enumerable: 'foo'}));
-assert.ok(!isDescriptor({ ...dataDefaults, value: 'foo', configurable: 'foo'}));
-assert.ok(!isDescriptor({ ...dataDefaults, value: 'foo', writable: 'foo'}));
+assert.equal(isDescriptor({ ...dataDefaults, value: 'foo', enumerable: 'foo' }), false);
+assert.equal(isDescriptor({ ...dataDefaults, value: 'foo', configurable: 'foo' }), false);
+assert.equal(isDescriptor({ ...dataDefaults, value: 'foo', writable: 'foo' }), false);
 ```
 
 ### accessor descriptor
@@ -80,34 +81,35 @@ assert.ok(!isDescriptor({ ...dataDefaults, value: 'foo', writable: 'foo'}));
 `true` when the object has valid properties with valid values.
 
 ```js
-assert.ok(isDescriptor({ ...defaults, get() {}, set() {} }));
-assert.ok(isDescriptor({ ...defaults, get() {} }));
-assert.ok(isDescriptor({ ...defaults, set() {} }));
+assert.equal(isDescriptor({ ...defaults, get() {}, set() {} }), true);
+assert.equal(isDescriptor({ ...defaults, get() {} }), true);
+assert.equal(isDescriptor({ ...defaults, set() {} }), true);
 ```
 
 `false` when the object has invalid properties
 
 ```js
-assert.ok(!isDescriptor({ ...defaults, get() {}, set() {}, bar: 'baz' }));
-assert.ok(!isDescriptor({ ...defaults, get() {}, writable: true }));
-assert.ok(!isDescriptor({ ...defaults, get() {}, value: true }));
+assert.equal(isDescriptor({ ...defaults, get() {}, set() {}, bar: 'baz' }), false);
+assert.equal(isDescriptor({ ...defaults, get() {}, set() {}, enumerable: 'baz' }), false);
+assert.equal(isDescriptor({ ...defaults, get() {}, writable: true }), false);
+assert.equal(isDescriptor({ ...defaults, get() {}, value: true }), false);
 ```
 
 Returns `false` when an accessor is not a function
 
 ```js
-assert.ok(!isDescriptor({ ...defaults, get() {}, set: 'baz' }));
-assert.ok(!isDescriptor({ ...defaults, get: 'foo', set() {} }));
-assert.ok(!isDescriptor({ ...defaults, get: 'foo', bar: 'baz' }));
-assert.ok(!isDescriptor({ ...defaults, get: 'foo', set: 'baz' }));
+assert.equal(isDescriptor({ ...defaults, get() {}, set: 'baz' }), false);
+assert.equal(isDescriptor({ ...defaults, get: 'foo', set() {} }), false);
+assert.equal(isDescriptor({ ...defaults, get: 'foo', bar: 'baz' }), false);
+assert.equal(isDescriptor({ ...defaults, get: 'foo', set: 'baz' }), false);
 ```
 
 Returns `false` when a value is not the correct type
 
 ```js
-assert.ok(!isDescriptor({ ...defaults, get() {}, set() {}, enumerable: 'foo' }));
-assert.ok(!isDescriptor({ ...defaults, set() {}, configurable: 'foo' }));
-assert.ok(!isDescriptor({ ...defaults, get() {}, configurable: 'foo' }));
+assert.equal(isDescriptor({ ...defaults, get() {}, set() {}, enumerable: 'foo' }), false);
+assert.equal(isDescriptor({ ...defaults, set() {}, configurable: 'foo' }), false);
+assert.equal(isDescriptor({ ...defaults, get() {}, configurable: 'foo' }), false);
 ```
 
 ### Related projects
