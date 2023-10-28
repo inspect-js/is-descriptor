@@ -106,7 +106,7 @@ test('isDescriptor', function (t) {
 		});
 
 		st.test('is false when "get" or "set" is not a function', function (s2t) {
-			s2t.ok(isDescriptor({ enumerable: true, configurable: true, set: noop }));
+			s2t.notOk(isDescriptor({ enumerable: true, configurable: true, set: noop }));
 			s2t.notOk(isDescriptor({ enumerable: true, configurable: true, get: 'foo' }));
 			s2t.notOk(isDescriptor({ enumerable: true, configurable: true, set: 'foo' }));
 
