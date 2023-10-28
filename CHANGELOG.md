@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v3.1.1](https://github.com/inspect-js/is-descriptor/compare/v3.1.0...v3.1.1) - 2023-10-27
+
+### Commits
+
+- [Fix] require fully completed property descriptor; use `gopd` and `hasown` [`d32fc37`](https://github.com/inspect-js/is-descriptor/commit/d32fc3743504a3d72815d820d45a60a6f70eb8bd)
+- Merge tag `v0.1.7`, `v1.0.3`` [`596c888`](https://github.com/inspect-js/is-descriptor/commit/596c888a558420697a396947cd24d0edd42e19ef)
+- [eslint] actually use eslint [`8bcf028`](https://github.com/inspect-js/is-descriptor/commit/8bcf0288c53c80297e6109f7632dab9b7b7fb5c5)
+- [meta] update package.json, gitignore from main [`544cdfe`](https://github.com/inspect-js/is-descriptor/commit/544cdfe60f5a4db8aa1b02de93b326271fa82ec1)
+- [readme] update readme from main [`1130f79`](https://github.com/inspect-js/is-descriptor/commit/1130f79112bd1d36ca5b0806a4ad14ae9427e0e9)
+- [Tests] switch to tape [`3f8f094`](https://github.com/inspect-js/is-descriptor/commit/3f8f0947049e4f2d631f88f0374e2b4a4e058577)
+- [Docs] remove verb [`92ee1bf`](https://github.com/inspect-js/is-descriptor/commit/92ee1bfcc56ba2cd30503c87af8e8cd795fdca51)
+- [Tests] migrate from travis to github actions [`8da3a3c`](https://github.com/inspect-js/is-descriptor/commit/8da3a3c38d50b4e9e18865efd25c6d35f98852b6)
+- [Fix] a descriptor with `set` and not `get` is still an accessor descriptor [`269fb53`](https://github.com/inspect-js/is-descriptor/commit/269fb5374659a8c07aac88993b13d94197e9cbed)
+- [patch] switch from `files` to `exports` [`41b2d61`](https://github.com/inspect-js/is-descriptor/commit/41b2d6152438119120b8d24ff98ebfb79cb19007)
+- [Fix] allow any non-primitive; arrays and functions are objects too [`9fd1ac8`](https://github.com/inspect-js/is-descriptor/commit/9fd1ac80cd42600510dc76de74da9a3834c4358d)
+- [Dev Deps] update `@ljharb/eslint-config`, `aud`, `tape` [`52668c9`](https://github.com/inspect-js/is-descriptor/commit/52668c9c4b3e2aa18f32b368523e65fdb933ca9c)
+- [Deps] update `is-accessor-descriptor`, `is-data-descriptor` [`f4dbc73`](https://github.com/inspect-js/is-descriptor/commit/f4dbc7327e9df005d3d6130af2ea612426a45081)
+- [Tests] fix incorrect test [`5f4b0e1`](https://github.com/inspect-js/is-descriptor/commit/5f4b0e14412e36d1ddba37ce099c097bfade1dc0)
+- v0.x line: v1 and v0 are the same, so, branch v0 from 1.x [`91be723`](https://github.com/inspect-js/is-descriptor/commit/91be72399c3066950d2414a6d2f091e1074625cd)
+- [Tests] make a test dir [`9eaa17c`](https://github.com/inspect-js/is-descriptor/commit/9eaa17c3cbcd545d9409ab8d83dcd8bd0c42e739)
+
 ## [v3.1.0](https://github.com/inspect-js/is-descriptor/compare/v3.0.0...v3.1.0) - 2023-05-01
 
 ### Commits
