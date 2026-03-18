@@ -12,7 +12,7 @@
 		"prepublishOnly": "safe-publish-latest",
 		"prepublish": "not-in-publish || npm run prepublishOnly",
 		"prelint-disabled": "evalmd README.md # https://github.com/reggi/evalmd/issues/27",
-		"lint": "eslint --ext=js,mjs .",
+		"lint": "eslint .",
 		"pretest": "npm run lint",
 		"tests-only": "nyc tape 'test/**/*.js'",
 		"test": "npm run tests-only",
@@ -62,7 +62,7 @@
 	"devDependencies": {
 		"@ljharb/eslint-config": "^22.2.3",
 		"auto-changelog": "^2.5.1",
-		"eslint": "^8.57.1",
+		"eslint": "^9.39.4",
 		"evalmd": "^0.0.19",
 		"has-proto": "^1.2.0",
 		"in-publish": "^2.0.1",
