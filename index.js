@@ -8,9 +8,13 @@ module.exports = function isDescriptor(obj, key) {
 		return false;
 	}
 
-	if ('get' in obj || 'set' in obj) {
-		return isAccessor(obj, key);
-	}
+	try {
+		if ('get' in obj || 'set' in obj) {
+			return isAccessor(obj, key);
+		}
 
-	return isData(obj, key);
+		return isData(obj, key);
+	} catch (e) {
+		return false;
+	}
 };
