@@ -1,7 +1,10 @@
 'use strict';
 
 var test = require('tape');
+var hasProto = require('has-proto')();
+
 var isDescriptor = require('../');
+
 var noop = function () {};
 
 test('isDescriptor', function (t) {
@@ -133,6 +136,54 @@ test('isDescriptor', function (t) {
 
 			s2t.end();
 		});
+
+		st.end();
+	});
+
+	t.test('prototype fallback (checkProto)', function (st) {
+		function Foo() {}
+		Object.defineProperty(Foo.prototype, 'x', {
+			value: 1,
+			writable: false,
+			configurable: false,
+			enumerable: false
+		});
+		var obj = new Foo();
+		st.equal(isDescriptor(obj, 'x'), true, 'a property on the constructor.prototype is a descriptor');
+		st.equal(typeof isDescriptor(obj, 'x'), 'boolean', 'returns a strict boolean (not undefined)');
+		st.equal(isDescriptor(obj, 'x', false), false, 'checkProto:false skips the prototype lookup');
+		st.equal(isDescriptor(obj, 'missing'), false, 'a missing prototype property returns false');
+
+		st.end();
+	});
+
+	t.test('null-prototype objects', { skip: !hasProto }, function (st) {
+		var obj = { __proto__: null, foo: 1 };
+		st.equal(isDescriptor(obj, 'foo'), true, 'own data property on a null-prototype object is a descriptor');
+		st.equal(
+			isDescriptor(obj, 'missing'),
+			false,
+			'missing key on a null-prototype object returns false (not undefined or throw)'
+		);
+		st.equal(typeof isDescriptor(obj, 'missing'), 'boolean', 'returns a strict boolean');
+
+		st.end();
+	});
+
+	t.test('hostile descriptor input: throwing accessors do not propagate', function (st) {
+		var configThrow = Object.defineProperty(
+			{ enumerable: true, value: 1, writable: false },
+			'configurable',
+			{ get: function () { throw new Error('configurable'); } }
+		);
+		st.equal(isDescriptor(configThrow), false, 'throwing .configurable getter returns false');
+
+		var enumThrow = Object.defineProperty(
+			{ configurable: true, value: 1, writable: false },
+			'enumerable',
+			{ get: function () { throw new Error('enumerable'); } }
+		);
+		st.equal(isDescriptor(enumThrow), false, 'throwing .enumerable getter returns false');
 
 		st.end();
 	});
