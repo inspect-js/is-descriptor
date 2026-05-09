@@ -54,8 +54,8 @@
 		"(https://github.com/wtgtybhertgeghgtwtg)"
 	],
 	"dependencies": {
-		"gopd": "^1.0.1",
-		"hasown": "^2.0.0",
+		"gopd": "^1.2.0",
+		"hasown": "^2.0.3",
 		"is-accessor-descriptor": "^3.0.5",
 		"is-data-descriptor": "^2.1.3"
 	},
