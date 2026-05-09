@@ -2,7 +2,7 @@
 	"extends": "@ljharb",
 
 	"rules": {
-		"func-style": "warn",
+		"func-style": "off",
 	},
 
 	"overrides": [
