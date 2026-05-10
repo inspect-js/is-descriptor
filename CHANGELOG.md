@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v3.1.1](https://github.com/inspect-js/is-descriptor/compare/v3.1.0...v3.1.1) - 2023-10-27
+
+### Commits
+
+- [Fix] require fully completed property descriptor; use `gopd` and `hasown` [`d32fc37`](https://github.com/inspect-js/is-descriptor/commit/d32fc3743504a3d72815d820d45a60a6f70eb8bd)
+- Merge tag `v0.1.7`, `v1.0.3`` [`596c888`](https://github.com/inspect-js/is-descriptor/commit/596c888a558420697a396947cd24d0edd42e19ef)
+- [eslint] actually use eslint [`8bcf028`](https://github.com/inspect-js/is-descriptor/commit/8bcf0288c53c80297e6109f7632dab9b7b7fb5c5)
+- [meta] update package.json, gitignore from main [`544cdfe`](https://github.com/inspect-js/is-descriptor/commit/544cdfe60f5a4db8aa1b02de93b326271fa82ec1)
+- [readme] update readme from main [`1130f79`](https://github.com/inspect-js/is-descriptor/commit/1130f79112bd1d36ca5b0806a4ad14ae9427e0e9)
+- [Tests] switch to tape [`3f8f094`](https://github.com/inspect-js/is-descriptor/commit/3f8f0947049e4f2d631f88f0374e2b4a4e058577)
+- [Docs] remove verb [`92ee1bf`](https://github.com/inspect-js/is-descriptor/commit/92ee1bfcc56ba2cd30503c87af8e8cd795fdca51)
+- [Tests] migrate from travis to github actions [`8da3a3c`](https://github.com/inspect-js/is-descriptor/commit/8da3a3c38d50b4e9e18865efd25c6d35f98852b6)
+- [Fix] a descriptor with `set` and not `get` is still an accessor descriptor [`269fb53`](https://github.com/inspect-js/is-descriptor/commit/269fb5374659a8c07aac88993b13d94197e9cbed)
+- [patch] switch from `files` to `exports` [`41b2d61`](https://github.com/inspect-js/is-descriptor/commit/41b2d6152438119120b8d24ff98ebfb79cb19007)
+- [Fix] allow any non-primitive; arrays and functions are objects too [`9fd1ac8`](https://github.com/inspect-js/is-descriptor/commit/9fd1ac80cd42600510dc76de74da9a3834c4358d)
+- [Dev Deps] update `@ljharb/eslint-config`, `aud`, `tape` [`52668c9`](https://github.com/inspect-js/is-descriptor/commit/52668c9c4b3e2aa18f32b368523e65fdb933ca9c)
+- [Deps] update `is-accessor-descriptor`, `is-data-descriptor` [`f4dbc73`](https://github.com/inspect-js/is-descriptor/commit/f4dbc7327e9df005d3d6130af2ea612426a45081)
+- [Tests] fix incorrect test [`5f4b0e1`](https://github.com/inspect-js/is-descriptor/commit/5f4b0e14412e36d1ddba37ce099c097bfade1dc0)
+- v0.x line: v1 and v0 are the same, so, branch v0 from 1.x [`91be723`](https://github.com/inspect-js/is-descriptor/commit/91be72399c3066950d2414a6d2f091e1074625cd)
+- [Tests] make a test dir [`9eaa17c`](https://github.com/inspect-js/is-descriptor/commit/9eaa17c3cbcd545d9409ab8d83dcd8bd0c42e739)
+
 ## [v3.1.0](https://github.com/inspect-js/is-descriptor/compare/v3.0.0...v3.1.0) - 2023-05-01
 
 ### Commits
@@ -25,13 +46,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - refactor [`7f7e2c8`](https://github.com/inspect-js/is-descriptor/commit/7f7e2c865674526424f5cd1fb98f0ed7811a67f9)
 
-## [v2.0.0](https://github.com/inspect-js/is-descriptor/compare/v1.0.3...v2.0.0) - 2017-12-28
+## [v2.0.0](https://github.com/inspect-js/is-descriptor/compare/v1.0.4...v2.0.0) - 2017-12-28
 
 ### Commits
 
 - run verb to generate readme [`7d97594`](https://github.com/inspect-js/is-descriptor/commit/7d97594666afaa825e0421883507cfec04ceef1d)
 - upgrade is-accessor-descriptor [`2e2cb1e`](https://github.com/inspect-js/is-descriptor/commit/2e2cb1e723d2ca1d6b8580d384702700e26dda81)
 - run update [`c04832a`](https://github.com/inspect-js/is-descriptor/commit/c04832a3a2bf48bef2ea0f5844652da7d6209242)
+
+## [v1.0.4](https://github.com/inspect-js/is-descriptor/compare/v1.0.3...v1.0.4) - 2026-05-09
+
+### Commits
+
+- [Fix] isolate throwing accessors (c1d7d88246a8aec0806288f75a63753ee58bc9a6) [`e4ba7b3`](https://github.com/inspect-js/is-descriptor/commit/e4ba7b3795e862ef60d4f384c6aa254139b5a418)
+- [Dev Deps] update `@ljharb/eslint-config`, `auto-changelog`, `eslint`, `npmignore`, `tape` [`f5e3551`](https://github.com/inspect-js/is-descriptor/commit/f5e3551c3441b8dea7a89a7e35dad3357d3b7a76)
+- [meta] use `npm audit` instead of `aud` [`3ab7057`](https://github.com/inspect-js/is-descriptor/commit/3ab7057117e5a0314ee7734e1c3b3e4505b0224e)
+- [Deps] update `is-accessor-descriptor` [`cbf741f`](https://github.com/inspect-js/is-descriptor/commit/cbf741f14761ee8ed32a177ca9271fed46ea2a63)
+- [readme] replace runkit CI badge with shields.io check-runs badge [`f6bc133`](https://github.com/inspect-js/is-descriptor/commit/f6bc133528727c1c942bc6ce98c45e840bfc641e)
 
 ## [v1.0.3](https://github.com/inspect-js/is-descriptor/compare/v1.0.2...v1.0.3) - 2023-10-26
 
@@ -62,7 +93,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - run update, lint [`754cc73`](https://github.com/inspect-js/is-descriptor/commit/754cc7382bd439f8e8b91775479c59c7c996cd47)
 - update deps [`2b58af6`](https://github.com/inspect-js/is-descriptor/commit/2b58af6426d0700607419b096766829aff27f642)
 
-## [v1.0.0](https://github.com/inspect-js/is-descriptor/compare/v0.1.7...v1.0.0) - 2017-02-25
+## [v1.0.0](https://github.com/inspect-js/is-descriptor/compare/v0.1.8...v1.0.0) - 2017-02-25
+
+## [v0.1.8](https://github.com/inspect-js/is-descriptor/compare/v0.1.7...v0.1.8) - 2026-05-10
+
+### Commits
+
+- [Fix] isolate throwing accessors (c1d7d88246a8aec0806288f75a63753ee58bc9a6) [`40a7b8e`](https://github.com/inspect-js/is-descriptor/commit/40a7b8ec7371e9b5a2287bcc37a51654fad90279)
+- [Dev Deps] update `@ljharb/eslint-config`, `auto-changelog`, `eslint`, `npmignore`, `tape` [`5b67a8a`](https://github.com/inspect-js/is-descriptor/commit/5b67a8a915c592d1dde5784eb22cd9d95a292127)
+- [meta] use `npm audit` instead of `aud` [`fa8652e`](https://github.com/inspect-js/is-descriptor/commit/fa8652e4629f188219bedc6f6e6006fc56b19907)
+- [readme] replace runkit CI badge with shields.io check-runs badge [`ca677db`](https://github.com/inspect-js/is-descriptor/commit/ca677dbf84fa872e66d9fe6d9975f29128c215f1)
 
 ## [v0.1.7](https://github.com/inspect-js/is-descriptor/compare/v0.1.6...v0.1.7) - 2023-10-26
 
