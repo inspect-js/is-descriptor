@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v3.1.2](https://github.com/inspect-js/is-descriptor/compare/v3.1.1...v3.1.2) - 2026-05-11
+
+### Commits
+
+- [actions] update workflows [`5cf1cde`](https://github.com/inspect-js/is-descriptor/commit/5cf1cdec27b106d32d60d855444e3e7ca305e8de)
+- Merge tags 'v0.1.8' and 'v1.0.4' [`f7b2d86`](https://github.com/inspect-js/is-descriptor/commit/f7b2d86ed90310f9a9bd818b8145be9058be083a)
+- [Fix] correct typo, return strict boolean, isolate throwing accessors [`c1d7d88`](https://github.com/inspect-js/is-descriptor/commit/c1d7d88246a8aec0806288f75a63753ee58bc9a6)
+- [Fix] isolate throwing accessors (c1d7d88246a8aec0806288f75a63753ee58bc9a6) [`40a7b8e`](https://github.com/inspect-js/is-descriptor/commit/40a7b8ec7371e9b5a2287bcc37a51654fad90279)
+- [Fix] isolate throwing accessors (c1d7d88246a8aec0806288f75a63753ee58bc9a6) [`e4ba7b3`](https://github.com/inspect-js/is-descriptor/commit/e4ba7b3795e862ef60d4f384c6aa254139b5a418)
+- [Dev Deps] update `@ljharb/eslint-config`, `auto-changelog`, `eslint`, `npmignore`, `tape` [`5b67a8a`](https://github.com/inspect-js/is-descriptor/commit/5b67a8a915c592d1dde5784eb22cd9d95a292127)
+- [Dev Deps] update `@ljharb/eslint-config`, `auto-changelog`, `eslint`, `npmignore`, `tape` [`f5e3551`](https://github.com/inspect-js/is-descriptor/commit/f5e3551c3441b8dea7a89a7e35dad3357d3b7a76)
+- [Dev Deps] update `@ljharb/eslint-config`, `auto-changelog`, `eslint`, `npmignore`, `tape` [`780d006`](https://github.com/inspect-js/is-descriptor/commit/780d006f2b39edab5d3a68980fd1bb81e863ad29)
+- [Deps] update `gopd`, `hasown` [`4d190d4`](https://github.com/inspect-js/is-descriptor/commit/4d190d414872941fa5971af4d021b29d41b36074)
+- [meta] use `npm audit` instead of `aud` [`fa8652e`](https://github.com/inspect-js/is-descriptor/commit/fa8652e4629f188219bedc6f6e6006fc56b19907)
+- [meta] use `npm audit` instead of `aud` [`3ab7057`](https://github.com/inspect-js/is-descriptor/commit/3ab7057117e5a0314ee7734e1c3b3e4505b0224e)
+- [meta] use `npm audit` instead of `aud` [`42e4abe`](https://github.com/inspect-js/is-descriptor/commit/42e4abe940e40dad24bc84453640bd9075694e93)
+- [Deps] update `is-accessor-descriptor` [`cbf741f`](https://github.com/inspect-js/is-descriptor/commit/cbf741f14761ee8ed32a177ca9271fed46ea2a63)
+- [readme] replace runkit CI badge with shields.io check-runs badge [`ca677db`](https://github.com/inspect-js/is-descriptor/commit/ca677dbf84fa872e66d9fe6d9975f29128c215f1)
+- [readme] replace runkit CI badge with shields.io check-runs badge [`f6bc133`](https://github.com/inspect-js/is-descriptor/commit/f6bc133528727c1c942bc6ce98c45e840bfc641e)
+- [readme] replace runkit CI badge with shields.io check-runs badge [`fa74f6e`](https://github.com/inspect-js/is-descriptor/commit/fa74f6e822c0f8517d9e003e10cda212533cdab1)
+
 ## [v3.1.1](https://github.com/inspect-js/is-descriptor/compare/v3.1.0...v3.1.1) - 2023-10-27
 
 ### Commits
