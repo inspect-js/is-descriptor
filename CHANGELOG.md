@@ -46,13 +46,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - refactor [`7f7e2c8`](https://github.com/inspect-js/is-descriptor/commit/7f7e2c865674526424f5cd1fb98f0ed7811a67f9)
 
-## [v2.0.0](https://github.com/inspect-js/is-descriptor/compare/v1.0.3...v2.0.0) - 2017-12-28
+## [v2.0.0](https://github.com/inspect-js/is-descriptor/compare/v1.0.4...v2.0.0) - 2017-12-28
 
 ### Commits
 
 - run verb to generate readme [`7d97594`](https://github.com/inspect-js/is-descriptor/commit/7d97594666afaa825e0421883507cfec04ceef1d)
 - upgrade is-accessor-descriptor [`2e2cb1e`](https://github.com/inspect-js/is-descriptor/commit/2e2cb1e723d2ca1d6b8580d384702700e26dda81)
 - run update [`c04832a`](https://github.com/inspect-js/is-descriptor/commit/c04832a3a2bf48bef2ea0f5844652da7d6209242)
+
+## [v1.0.4](https://github.com/inspect-js/is-descriptor/compare/v1.0.3...v1.0.4) - 2026-05-09
+
+### Commits
+
+- [Fix] isolate throwing accessors (c1d7d88246a8aec0806288f75a63753ee58bc9a6) [`e4ba7b3`](https://github.com/inspect-js/is-descriptor/commit/e4ba7b3795e862ef60d4f384c6aa254139b5a418)
+- [Dev Deps] update `@ljharb/eslint-config`, `auto-changelog`, `eslint`, `npmignore`, `tape` [`f5e3551`](https://github.com/inspect-js/is-descriptor/commit/f5e3551c3441b8dea7a89a7e35dad3357d3b7a76)
+- [meta] use `npm audit` instead of `aud` [`3ab7057`](https://github.com/inspect-js/is-descriptor/commit/3ab7057117e5a0314ee7734e1c3b3e4505b0224e)
+- [Deps] update `is-accessor-descriptor` [`cbf741f`](https://github.com/inspect-js/is-descriptor/commit/cbf741f14761ee8ed32a177ca9271fed46ea2a63)
+- [readme] replace runkit CI badge with shields.io check-runs badge [`f6bc133`](https://github.com/inspect-js/is-descriptor/commit/f6bc133528727c1c942bc6ce98c45e840bfc641e)
 
 ## [v1.0.3](https://github.com/inspect-js/is-descriptor/compare/v1.0.2...v1.0.3) - 2023-10-26
 
@@ -83,7 +93,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - run update, lint [`754cc73`](https://github.com/inspect-js/is-descriptor/commit/754cc7382bd439f8e8b91775479c59c7c996cd47)
 - update deps [`2b58af6`](https://github.com/inspect-js/is-descriptor/commit/2b58af6426d0700607419b096766829aff27f642)
 
-## [v1.0.0](https://github.com/inspect-js/is-descriptor/compare/v0.1.7...v1.0.0) - 2017-02-25
+## [v1.0.0](https://github.com/inspect-js/is-descriptor/compare/v0.1.8...v1.0.0) - 2017-02-25
+
+## [v0.1.8](https://github.com/inspect-js/is-descriptor/compare/v0.1.7...v0.1.8) - 2026-05-10
+
+### Commits
+
+- [Fix] isolate throwing accessors (c1d7d88246a8aec0806288f75a63753ee58bc9a6) [`40a7b8e`](https://github.com/inspect-js/is-descriptor/commit/40a7b8ec7371e9b5a2287bcc37a51654fad90279)
+- [Dev Deps] update `@ljharb/eslint-config`, `auto-changelog`, `eslint`, `npmignore`, `tape` [`5b67a8a`](https://github.com/inspect-js/is-descriptor/commit/5b67a8a915c592d1dde5784eb22cd9d95a292127)
+- [meta] use `npm audit` instead of `aud` [`fa8652e`](https://github.com/inspect-js/is-descriptor/commit/fa8652e4629f188219bedc6f6e6006fc56b19907)
+- [readme] replace runkit CI badge with shields.io check-runs badge [`ca677db`](https://github.com/inspect-js/is-descriptor/commit/ca677dbf84fa872e66d9fe6d9975f29128c215f1)
 
 ## [v0.1.7](https://github.com/inspect-js/is-descriptor/compare/v0.1.6...v0.1.7) - 2023-10-26
 
