@@ -84,7 +84,8 @@
 	},
 	"publishConfig": {
 		"ignore": [
-			".github/workflows"
+			".github/workflows",
+			".gitattributes"
 		]
 	}
 }
