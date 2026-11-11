@@ -13,4 +13,13 @@ export default [
 			'max-lines-per-function': 'off',
 		},
 	},
+	{
+		files: ['**/*.md/*.js'],
+		languageOptions: {
+			ecmaVersion: 2022,
+			parserOptions: {
+				allowReserved: false,
+			},
+		},
+	},
 ];
